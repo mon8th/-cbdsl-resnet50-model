@@ -1,0 +1,24 @@
+# Cambodian Sign Language (CBDSL) Recognition using ResNet50
+
+This repository contains my thesis work on **Cambodian Sign Language (CBDSL)** recognition. The current pilot phase validates the ResNet50 architecture and training pipeline on an American Sign Language (ASL) dataset before transitioning to CBDSL.
+
+## Project Status
+- **Current focus:** Pilot testing on ASL to validate the pipeline.
+- **Next phase:** Adaptation and training for CBDSL gestures.
+- **Framework:** TensorFlow 2.x (model subclassing).
+
+## Experimental Methodology
+I evaluate two training approaches:
+
+1. **Training from scratch:** Initialize ResNet50 with random weights and learn sign-specific features.
+2. **Transfer learning:** Fine-tune ImageNet-pretrained weights for better performance with limited CBDSL data.
+
+## Architecture Detail (ResNet50)
+The ResNet50 stem (stage 1) operates on $224 \times 224$ images:
+
+- **Conv1:** $7 \times 7$ filters, `strides=2`.
+- **Pooling:** $3 \times 3$ max pool, `strides=2`.
+- **Output:** $56 \times 56 \times 64$ feature maps before residual blocks.
+
+# Install dependencies
+pip install tensorflow numpy matplotlib
